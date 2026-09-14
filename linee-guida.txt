@@ -1,0 +1,19 @@
+✅ Fase 1: Settare la struttura
+❌ Fase 2: Costruire Host
+           . Home
+           . Account
+           . Bookings
+           . Cabins
+           . Economics
+           . Settings
+           . NotFound
+❌ Fase 3: Costruire Client
+           . Home
+           . Search
+           . Bookings
+           . Account
+           . Settings
+           . NotFound
+❌ Fase 4: Authentication
+                     
+
