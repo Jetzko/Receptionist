@@ -56,22 +56,27 @@ function Navbar() {
         <HiOutlineHome />
         <span>Home</span>
       </StyledLink>
-      <StyledLink to={'/cabins'}>
-        <HiOutlineHomeModern />
-        <span>Cabins</span>
-      </StyledLink>
-      <StyledLink to={'/users'}>
-        <HiOutlineUsers />
-        <span>Users</span>
-      </StyledLink>
+
       <StyledLink to={'/bookings'}>
         <HiOutlineCalendar />
         <span>Bookings</span>
       </StyledLink>
+
+      <StyledLink to={'/cabins'}>
+        <HiOutlineHomeModern />
+        <span>Cabins</span>
+      </StyledLink>
+
       <StyledLink to={'/dashboard'}>
         <HiOutlineChartBar />
         <span>Dashboard</span>
       </StyledLink>
+
+      <StyledLink to={'/users'}>
+        <HiOutlineUsers />
+        <span>Users</span>
+      </StyledLink>
+
       <StyledLink to={'/settings'}>
         <HiOutlineCog6Tooth />
         <span>Settings</span>

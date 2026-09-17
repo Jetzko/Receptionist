@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import UserAvatar from './UserAvatar';
+import HeaderMenu from './HeaderMenu';
 
 const HeaderStyled = styled.header`
   display: flex;
@@ -17,12 +19,10 @@ const ButtonsGroup = styled.div`
 function Header() {
   return (
     <HeaderStyled>
-      <span>Icon</span>
+      <UserAvatar />
 
       <ButtonsGroup>
-        <span>Account</span>
-        <span>Dark</span>
-        <span>Logout</span>
+        <HeaderMenu />
       </ButtonsGroup>
     </HeaderStyled>
   );
