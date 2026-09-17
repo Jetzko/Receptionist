@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const cabinsRouter = express.Router();
 
 const {
   getAllCabins,
@@ -10,18 +10,18 @@ const {
 } = require('../controllers/cabinsController');
 
 // get all
-router.get('/', getAllCabins);
+cabinsRouter.get('/', getAllCabins);
 
 // get
-router.get('/:id', getCabin);
+cabinsRouter.get('/:id', getCabin);
 
 // post
-router.post('/', createCabin);
+cabinsRouter.post('/', createCabin);
 
 // patch
-router.patch('/:id', updateCabin);
+cabinsRouter.patch('/:id', updateCabin);
 
 // delete
-router.delete('/:id', deleteCabin);
+cabinsRouter.delete('/:id', deleteCabin);
 
-module.exports = router;
+module.exports = cabinsRouter;

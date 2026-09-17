@@ -4,6 +4,8 @@ const express = require('express');
 const dns = require('node:dns/promises');
 const mongoose = require('mongoose');
 const cabinsRouter = require('./routes/cabinsRouter');
+const bookingsRouter = require('./routes/bookingsRouter');
+const usersRouter = require('./routes/usersRouter');
 
 // Server
 const app = express();
@@ -16,6 +18,10 @@ app.use(express.json());
 
 // Router
 app.use('/api/cabins/', cabinsRouter);
+
+app.use('/api/bookings/', bookingsRouter);
+
+app.use('/api/users/', usersRouter);
 
 // Database
 main().catch((err) => console.log(err));

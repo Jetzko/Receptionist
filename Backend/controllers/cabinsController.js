@@ -1,4 +1,4 @@
-'strict mode';
+'use strict';
 
 const mongoose = require('mongoose');
 const Cabin = require('../models/cabinModel');
