@@ -22,19 +22,20 @@ const cabinSchema = new Schema({
     type: String,
   },
   users: {
-    owners: {
-      type: {},
+    owner_id: {
+      type: String,
       required: true,
-      id: Schema.Types.ObjectId,
     },
-    admins: {
-      type: {},
-      id: Schema.Types.ObjectId,
-    },
-    collaborators: {
-      type: {},
-      id: Schema.Types.ObjectId,
-    },
+    admins_id: [
+      {
+        type: String,
+      },
+    ],
+    collaborators_id: [
+      {
+        type: String,
+      },
+    ],
   },
 });
 

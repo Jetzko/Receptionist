@@ -17,11 +17,9 @@ app.listen(process.env.PORT, () => {
 app.use(express.json());
 
 // Router
-app.use('/api/cabins/', cabinsRouter);
-
-app.use('/api/bookings/', bookingsRouter);
-
 app.use('/api/users/', usersRouter);
+app.use('/api/cabins/', cabinsRouter);
+app.use('/api/bookings/', bookingsRouter);
 
 // Database
 main().catch((err) => console.log(err));
