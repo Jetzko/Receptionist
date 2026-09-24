@@ -1,7 +1,15 @@
 const Cabin = require('../../models/cabinModel');
 
 const createCabin = async (req, res) => {
-  const { name, price, address, description = '', status = '' } = req.body;
+  const {
+    name,
+    price,
+    address,
+    description = '',
+    status = '',
+    reviews = '',
+    rating = '',
+  } = req.body;
 
   let emptyFields = [];
   if (!name) emptyFields.push('name');
@@ -24,6 +32,8 @@ const createCabin = async (req, res) => {
       users: {
         owner_id,
       },
+      reviews,
+      rating,
     });
     res.status(200).json(cabin);
   } catch (err) {

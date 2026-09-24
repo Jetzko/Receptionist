@@ -6,7 +6,7 @@ const validateUserIds = (userIds) => {
   return userIds.every((userId) => mongoose.Types.ObjectId.isValid(userId));
 };
 
-const checkUserExist = async (userIds) => {
+const checkUserExistence = async (userIds) => {
   // 1. Cerca tra gli utenti nel db quelli con id uguale a quello degli utenti aggiunti nella richiesta
   const existingUsers = await User.find({
     _id: { $in: userIds },
@@ -58,12 +58,6 @@ const updateCabin = async (req, res) => {
     return res.status(400).json({ error: 'Cabin ID not valid' });
   }
 
-  // if (!Array.isArray(admins_id) || !Array.isArray(collaborators_id)) {
-  //   return res.status(400).json({
-  //     error: 'admins_id and collaborators_id must be arrays.',
-  //   });
-  // }
-
   try {
     const cabin = await findEditableCabin(cabin_id, activeUser_id);
 
@@ -83,7 +77,7 @@ const updateCabin = async (req, res) => {
         error: 'One or more user IDs are not valid.',
       });
 
-    if (!(await checkUserExist(userIdsToCheck)))
+    if (!(await checkUserExistence(userIdsToCheck)))
       return res.status(404).json({ error: 'One or more user do not exist.' });
 
     const updateData = buildUpdatableData({
@@ -92,7 +86,6 @@ const updateCabin = async (req, res) => {
     });
 
     const updatedCabin = await Cabin.findByIdAndUpdate(
-      // trova la cabin con questo
       cabin_id,
       { $set: updateData },
       { new: true, runValidators: true },

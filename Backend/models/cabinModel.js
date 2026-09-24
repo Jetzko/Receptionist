@@ -37,6 +37,14 @@ const cabinSchema = new Schema({
       },
     ],
   },
+  reviews: [
+    {
+      type: String,
+    },
+  ],
+  rating: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model('Cabin', cabinSchema);

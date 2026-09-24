@@ -18,10 +18,17 @@ const signup = async (req, res) => {
     languages = [],
     description = '',
   } = req.body;
-  console.log(req.headers.authorization);
 
   try {
-    const user = await User.signup(email, password, fullName);
+    const user = await User.signup(
+      email,
+      password,
+      fullName,
+      phone,
+      nationality,
+      languages,
+      description,
+    );
 
     const token = createToken(user._id);
 
