@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { CabinsContext, cabinsReducer } from './CabinsReducer';
+import { CabinsContext, cabinsReducer } from './CabinsContext';
 
 export const CabinsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cabinsReducer, {

@@ -1,4 +1,4 @@
-import { CabinsContext } from '../contexts/CabinsContext';
+import { CabinsContext } from '../contexts/CabinsContextProvider';
 import { useContext } from 'react';
 
 export const useCabinsContext = () => {
