@@ -8,11 +8,11 @@ const { createCabin } = require('../controllers/cabins/createCabin');
 const { updateCabin } = require('../controllers/cabins/updateCabin');
 const { deleteCabin } = require('../controllers/cabins/deleteCabin');
 
-cabinsRouter.get('/', getAllCabins);
 cabinsRouter.get('/:id', getCabin);
 
 cabinsRouter.use(requireAuth);
 
+cabinsRouter.get('/', getAllCabins);
 cabinsRouter.post('/', createCabin);
 cabinsRouter.patch('/:cabin_id', updateCabin);
 cabinsRouter.delete('/:id', deleteCabin);

@@ -7,8 +7,15 @@ const User = require('../../models/userModel');
 // get all
 const getAllCabins = async (req, res) => {
   try {
-    const cabins = await Cabin.find({});
+    const activeUserId = req.user._id.toString();
 
+    const cabins = await Cabin.find({
+      $or: [
+        { 'users.owner_id': activeUserId },
+        { 'users.admins_id': activeUserId },
+        { 'users.collaborators_id': activeUserId },
+      ],
+    });
     res.status(200).json(cabins);
   } catch (err) {
     res.status(400).json({ message: err.message });
