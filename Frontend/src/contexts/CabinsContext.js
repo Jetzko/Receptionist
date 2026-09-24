@@ -4,7 +4,7 @@ export const CabinsContext = createContext();
 
 export const cabinsReducer = (state, action) => {
   switch (action.type) {
-    case 'GET_CABINS':
+    case 'SET_CABINS':
       return {
         ...state,
         cabins: action.payload,
