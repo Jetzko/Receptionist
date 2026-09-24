@@ -1,6 +1,6 @@
 import { HiArrowRightOnRectangle } from 'react-icons/hi2';
-import ButtonIcon from './reusable/ButtonIcon';
-import SpinnerMini from './reusable/SpinnerMini';
+import ButtonIcon from '../reusable/ButtonIcon';
+import SpinnerMini from '../reusable/SpinnerMini';
 
 function Logout() {
   return (

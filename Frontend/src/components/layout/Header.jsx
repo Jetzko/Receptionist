@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import UserAvatar from './UserAvatar';
+import UserAvatar from '../reusable/UserAvatar';
 import HeaderMenu from './HeaderMenu';
 
 const HeaderStyled = styled.header`
@@ -8,6 +8,7 @@ const HeaderStyled = styled.header`
   grid-column: 2;
   padding: 1.2rem 4.8rem;
   gap: 2.4rem;
+  border-bottom: 1px solid var(--color-gold-100);
 `;
 
 const ButtonsGroup = styled.div`

@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router';
+import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import styled from 'styled-components';
@@ -14,6 +14,7 @@ const Layout = styled.div`
 const Main = styled.main`
   overflow: scroll;
   padding: 4rem 4.8rem 6.4rem;
+  background-color: var(--color-gold-50);
 `;
 
 function AppLayout() {

@@ -23,7 +23,7 @@ const AvatarImg = styled.img`
 function UserAvatar() {
   return (
     <StyledUserAvatar>
-      <AvatarImg src='../../public/default-user.jpg' />
+      <AvatarImg src='./default-user.jpg' />
       <span>User</span>
     </StyledUserAvatar>
   );

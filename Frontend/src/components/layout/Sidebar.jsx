@@ -9,6 +9,7 @@ const Aside = styled.aside`
   flex-direction: column;
   align-items: center;
   gap: 3.2rem;
+  border-right: 1px solid var(--color-gold-100);
 `;
 
 function Sidebar() {

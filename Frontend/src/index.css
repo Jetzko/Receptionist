@@ -1,4 +1,5 @@
 :root {
+  --color-indigo-0: #f6f3f9;
   --color-indigo-50: #eee6f3;
   --color-indigo-100: #cbb3db;
   --color-indigo-200: #a880c3;
@@ -9,8 +10,10 @@
   --color-indigo-700: #290044;
   --color-indigo-800: #180029;
   --color-indigo-900: #08000e;
+  --color-indigo-1000: #040006;
 
-  --color-gold-50: #fff9e6;
+  --color-gold-0: #fffdf9;
+  --color-gold-50: #fefbf2;
   --color-gold-100: #feeeb3;
   --color-gold-200: #fee280;
   --color-gold-300: #fed64d;
@@ -20,6 +23,7 @@
   --color-gold-700: #7f6300;
   --color-gold-800: #4c3b00;
   --color-gold-900: #191400;
+  --color-gold-1000: #0b0900;
 
   --color-blue-100: #e0f2fe;
   --color-blue-700: #0369a1;
@@ -72,7 +76,7 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--color-indigo-700);
-  background-color: var(--color-gold-50);
+  background-color: var(--color-gold-0);
 
   transition:
     color 0.3s,

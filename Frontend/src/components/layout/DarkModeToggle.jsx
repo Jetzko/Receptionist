@@ -1,5 +1,5 @@
 import { HiOutlineMoon } from 'react-icons/hi2';
-import ButtonIcon from './reusable/ButtonIcon';
+import ButtonIcon from '../reusable/ButtonIcon';
 
 function DarkModeToggle() {
   return (

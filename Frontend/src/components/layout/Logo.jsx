@@ -24,7 +24,7 @@ const Title = styled.strong`
 function Logo() {
   return (
     <StyledLogo>
-      <Image src='../../public/icons8-campanella-di-servizio-64.png' />
+      <Image src='./icons8-campanella-di-servizio-64.png' />
       <Title>RECEPTIONIST</Title>
     </StyledLogo>
   );

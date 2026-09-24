@@ -1,7 +1,8 @@
 import { Navigate } from 'react-router';
-import styled from 'styled-components';
-import ButtonIcon from './reusable/ButtonIcon';
 import { HiOutlineUser } from 'react-icons/hi2';
+import styled from 'styled-components';
+
+import ButtonIcon from '../reusable/ButtonIcon';
 import Logout from './Logout';
 import DarkModeToggle from './DarkModeToggle';
 

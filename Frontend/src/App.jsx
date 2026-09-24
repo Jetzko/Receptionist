@@ -1,12 +1,11 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router';
-import './App.css';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Bookings from './pages/Bookings';
 import Cabins from './pages/Cabins';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Settings from './pages/Settings';
-import AppLayout from './components/AppLayout';
+import AppLayout from './components/layout/AppLayout';
 import Users from './pages/Users';
 import Dashboard from './pages/Dashboard';
 import Account from './pages/Account';
