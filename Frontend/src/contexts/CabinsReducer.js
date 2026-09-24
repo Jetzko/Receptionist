@@ -1,5 +1,4 @@
-import { createContext, useReducer } from 'react';
-import cabinsRouter from '../../../Backend/routes/cabinsRouter';
+import { createContext } from 'react';
 
 export const CabinsContext = createContext();
 
@@ -31,16 +30,4 @@ export const cabinsReducer = (state, action) => {
     default:
       return state;
   }
-};
-
-export const CabinsContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(cabinsRouter, {
-    cabins: null,
-  });
-
-  return (
-    <CabinsContext.Provider value={{ ...state, dispatch }}>
-      {children}
-    </CabinsContext.Provider>
-  );
 };
