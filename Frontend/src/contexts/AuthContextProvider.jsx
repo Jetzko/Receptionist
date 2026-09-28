@@ -1,12 +1,9 @@
 import { useReducer } from 'react';
 import { useEffect } from 'react';
-import {
-  authReducer,
-  AuthContext,
-} from '../../../MERN-App/frontend/src/context/AuthContext';
+import { AuthReducer, AuthContext } from './AuthContext';
 
 export function AuthContextProvider({ children }) {
-  const [state, dispatch] = useReducer(authReducer, { user: null });
+  const [state, dispatch] = useReducer(AuthReducer, { user: null });
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));

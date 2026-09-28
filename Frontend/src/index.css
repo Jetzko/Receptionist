@@ -1,29 +1,140 @@
 :root {
-  --color-indigo-0: #f6f3f9;
-  --color-indigo-50: #eee6f3;
-  --color-indigo-100: #cbb3db;
-  --color-indigo-200: #a880c3;
-  --color-indigo-300: #854dab;
-  --color-indigo-400: #621a93;
-  --color-indigo-500: #49007a;
-  --color-indigo-600: #39005f;
-  --color-indigo-700: #290044;
-  --color-indigo-800: #180029;
-  --color-indigo-900: #08000e;
-  --color-indigo-1000: #040006;
+  /*PALETTE: https://coolors.co/palette/540d6e-ee4266-ffd23f */
 
-  --color-gold-0: #fffdf9;
-  --color-gold-50: #fefbf2;
-  --color-gold-100: #feeeb3;
-  --color-gold-200: #fee280;
-  --color-gold-300: #fed64d;
-  --color-gold-400: #fdcb1a;
-  --color-gold-500: #e4b100;
-  --color-gold-600: #b18a00;
-  --color-gold-700: #7f6300;
-  --color-gold-800: #4c3b00;
-  --color-gold-900: #191400;
-  --color-gold-1000: #0b0900;
+  --color-grey-0: #fff;
+  --color-grey-50: #f9fafb;
+  --color-grey-100: #f3f4f6;
+  --color-grey-200: #e5e7eb;
+  --color-grey-300: #d1d5db;
+  --color-grey-400: #9ca3af;
+  --color-grey-500: #6b7280;
+  --color-grey-600: #4b5563;
+  --color-grey-700: #374151;
+  --color-grey-800: #1f2937;
+  --color-grey-900: #111827;
+
+  /* Velvet Vortex */
+  --color-primary-base: #540d6e;
+  --color-primary-shade-50: #500c69;
+  --color-primary-shade-100: #4c0c63;
+  --color-primary-shade-150: #470b5e;
+  --color-primary-shade-200: #430a58;
+  --color-primary-shade-250: #3f0a53;
+  --color-primary-shade-300: #3b094d;
+  --color-primary-shade-350: #370848;
+  --color-primary-shade-400: #320842;
+  --color-primary-shade-450: #2e073d;
+  --color-primary-shade-500: #2a0737;
+  --color-primary-shade-550: #260631;
+  --color-primary-shade-600: #22052c;
+  --color-primary-shade-650: #1d0527;
+  --color-primary-shade-700: #190421;
+  --color-primary-shade-750: #15031c;
+  --color-primary-shade-800: #110316;
+  --color-primary-shade-850: #0d0211;
+  --color-primary-shade-900: #08010b;
+  --color-primary-shade-950: #040106;
+  --color-primary-tint-50: #5d1975;
+  --color-primary-tint-100: #65257d;
+  --color-primary-tint-150: #6e3184;
+  --color-primary-tint-200: #763d8b;
+  --color-primary-tint-250: #7f4a92;
+  --color-primary-tint-300: #87569a;
+  --color-primary-tint-350: #9062a1;
+  --color-primary-tint-400: #986ea8;
+  --color-primary-tint-450: #a17aaf;
+  --color-primary-tint-500: #aa86b7;
+  --color-primary-tint-550: #b292be;
+  --color-primary-tint-600: #bb9ec5;
+  --color-primary-tint-650: #c3aacc;
+  --color-primary-tint-700: #ccb6d4;
+  --color-primary-tint-750: #d4c3db;
+  --color-primary-tint-800: #ddcfe2;
+  --color-primary-tint-850: #e5dbe9;
+  --color-primary-tint-900: #eee7f1;
+  --color-primary-tint-950: #f6f3f8;
+
+  /* Lamplight */
+  --color-secondary-base: #ffd23f;
+  --color-secondary-shade-50: #f2c83c;
+  --color-secondary-shade-100: #e6bd39;
+  --color-secondary-shade-150: #d9b336;
+  --color-secondary-shade-200: #cca832;
+  --color-secondary-shade-250: #bf9e2f;
+  --color-secondary-shade-300: #b3932c;
+  --color-secondary-shade-350: #a68929;
+  --color-secondary-shade-400: #997e26;
+  --color-secondary-shade-450: #8c7423;
+  --color-secondary-shade-500: #806920;
+  --color-secondary-shade-550: #735e1c;
+  --color-secondary-shade-600: #665419;
+  --color-secondary-shade-650: #594a16;
+  --color-secondary-shade-700: #4d3f13;
+  --color-secondary-shade-750: #403510;
+  --color-secondary-shade-800: #332a0d;
+  --color-secondary-shade-850: #262009;
+  --color-secondary-shade-900: #1a1506;
+  --color-secondary-shade-950: #0d0b03;
+  --color-secondary-tint-50: #ffd449;
+  --color-secondary-tint-100: #ffd752;
+  --color-secondary-tint-150: #ffd95c;
+  --color-secondary-tint-200: #ffdb65;
+  --color-secondary-tint-250: #ffdd6f;
+  --color-secondary-tint-300: #ffe079;
+  --color-secondary-tint-350: #ffe282;
+  --color-secondary-tint-400: #ffe48c;
+  --color-secondary-tint-450: #ffe695;
+  --color-secondary-tint-500: #ffe99f;
+  --color-secondary-tint-550: #ffeba9;
+  --color-secondary-tint-600: #ffedb2;
+  --color-secondary-tint-650: #ffefbc;
+  --color-secondary-tint-700: #fff2c5;
+  --color-secondary-tint-750: #fff4cf;
+  --color-secondary-tint-800: #fff6d9;
+  --color-secondary-tint-850: #fff8e2;
+  --color-secondary-tint-900: #fffbec;
+  --color-secondary-tint-950: #fffdf5;
+
+  /* Smudged Lips */
+  --color-tertiary-base: #ee4266;
+  --color-tertiary-shade-50: #e23f61;
+  --color-tertiary-shade-100: #d63b5c;
+  --color-tertiary-shade-150: #ca3857;
+  --color-tertiary-shade-200: #be3552;
+  --color-tertiary-shade-250: #b3324d;
+  --color-tertiary-shade-300: #a72e47;
+  --color-tertiary-shade-350: #9b2b42;
+  --color-tertiary-shade-400: #8f283d;
+  --color-tertiary-shade-450: #832438;
+  --color-tertiary-shade-500: #772133;
+  --color-tertiary-shade-550: #6b1e2e;
+  --color-tertiary-shade-600: #5f1a29;
+  --color-tertiary-shade-650: #531724;
+  --color-tertiary-shade-700: #47141f;
+  --color-tertiary-shade-750: #3c111a;
+  --color-tertiary-shade-800: #300d14;
+  --color-tertiary-shade-850: #240a0f;
+  --color-tertiary-shade-900: #18070a;
+  --color-tertiary-shade-950: #0c0305;
+  --color-tertiary-tint-50: #ef4b6e;
+  --color-tertiary-tint-100: #f05575;
+  --color-tertiary-tint-150: #f15e7d;
+  --color-tertiary-tint-200: #f16885;
+  --color-tertiary-tint-250: #f2718c;
+  --color-tertiary-tint-300: #f37b94;
+  --color-tertiary-tint-350: #f4849c;
+  --color-tertiary-tint-400: #f58ea3;
+  --color-tertiary-tint-450: #f697ab;
+  --color-tertiary-tint-500: #f7a1b3;
+  --color-tertiary-tint-550: #f7aaba;
+  --color-tertiary-tint-600: #f8b3c2;
+  --color-tertiary-tint-650: #f9bdc9;
+  --color-tertiary-tint-700: #fac6d1;
+  --color-tertiary-tint-750: #fbd0d9;
+  --color-tertiary-tint-800: #fcd9e0;
+  --color-tertiary-tint-850: #fce3e8;
+  --color-tertiary-tint-900: #fdecf0;
+  --color-tertiary-tint-950: #fef6f7;
 
   --color-blue-100: #e0f2fe;
   --color-blue-700: #0369a1;
@@ -43,7 +154,7 @@
   --backdrop-color: rgba(255, 255, 255, 0.1);
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.06);
+  --shadow-md: 0px 0.6rem 2.4rem rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 2.4rem 3.2rem rgba(0, 0, 0, 0.12);
 
   --border-radius-tiny: 3px;
@@ -54,14 +165,54 @@
   /* For dark mode */
   --image-grayscale: 0;
   --image-opacity: 100%;
+
+  --padding-xsm: 0.6rem;
+  --padding-half-sm: 0.8rem;
+  --padding-sm: 1.2rem;
+  --padding-md: 2.4rem;
+  --padding-lg: 4rem;
+  --padding-xlg: 4.8rem;
+
+  /* Typography Scale */
+  --font-size-base: 16px;
+
+  --font-size-m2: 1rem;
+  --font-size-m1: 1.3rem;
+  --font-size-0: 1.6rem;
+  --font-size-1: 2rem;
+  --font-size-2: 2.5rem;
+  --font-size-3: 3.1rem;
+  --font-size-4: 3.9rem;
+  --font-size-5: 4.9rem;
+
+  --font-weight-light: 300;
+  --font-weight-medium: 500;
+  --font-weight-heavy: 700;
+  --font-weight-hero: 900;
+
+  --space-1: 0.4rem;
+  --space-2: 0.6rem;
+  --space-3: 1rem;
+  --space-4: 1.7rem;
+  --space-5: 2.7rem;
+  --space-6: 4.4rem;
+  --space-7: 7.2rem;
+  --space-8: 11.6rem;
+  --space-9: 18.8rem;
+  --space-10: 30.4rem;
+  --space-11: 49.2rem;
+  --space-12: 79.6rem;
+  --space-13: 128.8rem;
+  --space-14: 208.3rem;
+  --space-15: 337.1rem;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+  padding: 0px;
+  margin: 0px;
 
   /* Creating animations for dark mode */
   transition:
@@ -75,15 +226,15 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: var(--color-indigo-700);
-  background-color: var(--color-gold-0);
+  color: var(--color-primary-shade-350);
+  /* background-color: var(--color-primary-tint-850); */
 
   transition:
     color 0.3s,
     background-color 0.3s;
   min-height: 100vh;
   line-height: 1.5;
-  font-size: 1.6rem;
+  font-size: var(--font-size-0);
 }
 
 input,
@@ -104,16 +255,18 @@ button {
 
 select:disabled,
 input:disabled {
-  background-color: var(--color-indigo-200);
-  color: var(--color-indigo-500);
+  background-color: var(--color-primary-tint-300);
+  color: var(--color-primary-shade-300);
 }
 
 input:focus,
 button:focus,
 textarea:focus,
-select:focus {
-  outline: 2px solid var(--indigo-2);
+select:focus,
+a:focus {
+  outline: 2px solid var(--color-primary-tint-500);
   outline-offset: -1px;
+  border-radius: var(--border-radius-md);
 }
 
 /* Parent selector, finally 😃 */
@@ -139,6 +292,7 @@ h5,
 h6 {
   overflow-wrap: break-word;
   hyphens: auto;
+  font-weight: var(--font-weight-heavy);
 }
 
 img {
@@ -151,5 +305,5 @@ img {
 section {
   height: 100dvh;
   margin: 0px auto;
-  max-width: 120rem;
+  max-width: var(--space-13);
 }

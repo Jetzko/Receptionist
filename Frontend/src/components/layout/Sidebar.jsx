@@ -7,9 +7,10 @@ const Aside = styled.aside`
   padding: 3.2rem 2.4rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 3.2rem;
-  border-right: 1px solid var(--color-gold-100);
+  /* background-color: #fff; */
+  background-color: var(--color-primary-tint-950);
+  border-right: 1px solid var(--color-primary-tint-500);
 `;
 
 function Sidebar() {

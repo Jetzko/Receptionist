@@ -4,20 +4,19 @@ const StyledLogo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
+  gap: var(--space-3);
+  padding: auto var(--padding-md);
 `;
 
 const Image = styled.img`
-  height: 6.4rem;
-  width: auto;
+  height: var(--space-7);
 `;
 
 const Title = styled.strong`
   font-family: 'Playfair Display SC', serif;
-  font-weight: 900;
+  font-weight: var(--font-weight-hero);
   font-style: normal;
-  font-size: 1.6rem;
-  color: var(--color-indigo-400);
+  color: var(--color-tertiary-base);
   letter-spacing: 0.2rem;
 `;
 
