@@ -8,7 +8,9 @@ const HeaderStyled = styled.header`
   grid-column: 2;
   padding: 1.2rem 4.8rem;
   gap: 2.4rem;
-  border-bottom: 1px solid var(--color-gold-100);
+  /* background-color: #fff; */
+  background-color: var(--color-primary-tint-950);
+  border-bottom: 1px solid var(--color-primary-tint-500);
 `;
 
 const ButtonsGroup = styled.div`
