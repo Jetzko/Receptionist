@@ -15,10 +15,14 @@ const cabinSchema = new Schema({
     type: String,
     required: true,
   },
-  status: {
+  capacity: {
     type: String,
+    required: true,
   },
   description: {
+    type: String,
+  },
+  status: {
     type: String,
   },
   users: {

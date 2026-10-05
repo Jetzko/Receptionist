@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useCabinsContext } from '../hooks/useCabinsContext';
+import { useCabinsContext } from '../../../hooks/useCabinsContext';
 
 function CabinForm() {
   const { dispatch } = useCabinsContext();

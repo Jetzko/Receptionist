@@ -255,7 +255,7 @@ button {
 
 select:disabled,
 input:disabled {
-  background-color: var(--color-primary-tint-300);
+  background-color: var(--color-primary-tint-900);
   color: var(--color-primary-shade-300);
 }
 

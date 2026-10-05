@@ -5,8 +5,9 @@ const createCabin = async (req, res) => {
     name,
     price,
     address,
+    capacity = '',
     description = '',
-    status = '',
+    status = 'available',
     reviews = '',
     rating = '',
   } = req.body;
@@ -15,6 +16,7 @@ const createCabin = async (req, res) => {
   if (!name) emptyFields.push('name');
   if (!price) emptyFields.push('price');
   if (!address) emptyFields.push('address');
+  if (!capacity) emptyFields.push('capacity');
 
   if (emptyFields.length > 0)
     return res
@@ -27,8 +29,9 @@ const createCabin = async (req, res) => {
       name,
       price,
       address,
-      status,
+      capacity,
       description,
+      status,
       users: {
         owner_id,
       },
