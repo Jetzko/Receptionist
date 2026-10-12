@@ -13,6 +13,7 @@ const signup = async (req, res) => {
     email,
     password,
     fullName,
+    nickname = '',
     phone = '',
     nationality = '',
     languages = [],
@@ -24,15 +25,17 @@ const signup = async (req, res) => {
       email,
       password,
       fullName,
+      nickname,
       phone,
       nationality,
       languages,
       description,
     );
 
+    const _id = user._id;
     const token = createToken(user._id);
 
-    res.status(200).json({ email, token });
+    res.status(200).json({ email, token, _id });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }

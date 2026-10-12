@@ -32,6 +32,8 @@ export function useLogin() {
       setisLoading(false);
       navigate('/');
     }
+
+    return response;
   }
 
   return { login, isLoading, error };

@@ -9,12 +9,20 @@ import AppLayout from './components/layout/AppLayout';
 import Users from './pages/Users';
 import Dashboard from './pages/Dashboard';
 import Account from './pages/Account';
+import Signup from './pages/Signup';
+import ProtectedRoute from './components/features/authentication/ProtectedRoute';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<AppLayout />}>
+        <Route
+          element={
+            <ProtectedRoute>
+              <AppLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Navigate replace to='home' />} />
           <Route path='account' element={<Account />} />
           <Route path='home' element={<Home />} />
@@ -26,6 +34,7 @@ function App() {
         </Route>
 
         <Route path='login' element={<Login />} />
+        <Route path='signup' element={<Signup />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
