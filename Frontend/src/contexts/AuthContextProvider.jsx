@@ -17,7 +17,11 @@ function getLocalUser() {
 }
 
 export function AuthContextProvider({ children }) {
-  const [state, dispatch] = useReducer(AuthReducer, getLocalUser);
+  const [state, dispatch] = useReducer(
+    AuthReducer,
+    { user: null },
+    getLocalUser,
+  );
   // const user = JSON.parse(localStorage.getItem('user'));
 
   // if (state.user) dispatch({ type: 'LOGIN', payload: state.user });

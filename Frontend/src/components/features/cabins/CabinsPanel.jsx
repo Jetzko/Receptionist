@@ -5,11 +5,11 @@ import { useEffect } from 'react';
 import CabinRow from './CabinRow';
 import { useSetCabins } from '../../../hooks/useSetCabins';
 import { useCabinsContext } from '../../../hooks/useCabinsContext';
+import SpinnerMini from '../../reusable/SpinnerMini';
 
 function CabinsPanel() {
   const { setCabins, isLoading, error } = useSetCabins();
   const { cabins } = useCabinsContext();
-  console.log(cabins);
 
   const { user } = useAuthContext();
 
@@ -34,7 +34,10 @@ function CabinsPanel() {
 
         <Table.Body
           data={cabins}
-          render={(cabin) => <CabinRow cabin={cabin} key={cabin._id} />}
+          isLoading={isLoading}
+          render={(cabin) => (
+            <CabinRow cabin={cabin} key={cabin._id} isLoading={isLoading} />
+          )}
         />
       </Table>
     </Menus>

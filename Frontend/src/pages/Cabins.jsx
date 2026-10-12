@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import CabinsPanel from '../components/features/cabins/CabinsPanel';
 import Row from '../components/layout/Row';
 import Heading from '../components/reusable/Heading';
+import CabinForm from '../components/features/cabins/CabinForm';
+import Modal from '../components/Modal';
 
 const AddCabinButton = styled.button`
   background-color: var(--color-secondary-tint-200);
@@ -23,6 +26,18 @@ const AddCabinButton = styled.button`
 `;
 
 function Cabins() {
+  const [modal, setModal] = useState(null);
+  const [cabin, setCabin] = useState('');
+
+  function handleCreateModal() {
+    setModal('create');
+  }
+
+  function handleCloseModal() {
+    setModal(null);
+    setCabin('');
+  }
+
   return (
     <>
       <Row type='horizontal'>
@@ -30,11 +45,16 @@ function Cabins() {
       </Row>
 
       <Row type='vertical'>
-        <CabinsPanel />
+        <CabinsPanel modal={modal} />
         <div>
-          <AddCabinButton>Add Cabin</AddCabinButton>
+          <AddCabinButton onClick={handleCreateModal}>Add Cabin</AddCabinButton>
         </div>
       </Row>
+      {modal && (
+        <Modal onClose={handleCloseModal}>
+          <CabinForm mode={modal} cabin={cabin} onClose={handleCloseModal} />
+        </Modal>
+      )}
     </>
   );
 }

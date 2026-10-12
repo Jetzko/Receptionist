@@ -18,8 +18,6 @@ function ProtectedRoute({ children }) {
   const { user } = useAuthContext();
   const navigate = useNavigate();
 
-  console.log(user);
-
   // 1. Load Authenticated user
   const { isLoading, isAuthenticated, checkUserAuth } = useUser();
 

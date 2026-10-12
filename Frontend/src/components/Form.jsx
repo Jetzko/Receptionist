@@ -10,6 +10,7 @@ const Form = styled.form`
       background-color: var(--color-primary-tint-950);
       border: 1px solid var(--color-primary-tint-900);
       border-radius: var(--border-radius-md);
+      box-shadow: 5px 5px 5px var(--color-primary-tint-500);
     `}
 
   ${(props) =>
