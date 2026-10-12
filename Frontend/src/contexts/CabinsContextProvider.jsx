@@ -3,7 +3,7 @@ import { CabinsContext, cabinsReducer } from './CabinsContext';
 
 export const CabinsContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(cabinsReducer, {
-    cabins: [],
+    cabins: null,
   });
 
   return (

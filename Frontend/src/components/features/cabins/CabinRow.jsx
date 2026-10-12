@@ -15,35 +15,20 @@ const Price = styled.div`
   font-weight: 600;
 `;
 
-function CabinRow({ cabin, isLoading }) {
+function CabinRow({ cabin }) {
   const { _id, name, price, address, capacity, status, users } = cabin;
 
-  if (!isLoading)
-    return (
-      <Table.Row>
-        <div></div>
-        <Cabin>{name}</Cabin>
-        <div>Fits up to ${capacity} guests</div>
-        <Price>{formatCurrency(price)}</Price>
-        <div>{address}</div>
-        <div>{status}</div>
-        <div></div>
-      </Table.Row>
-    );
-  if (isLoading)
-    return (
-      <Table.Row>
-        <div>
-          <SpinnerMini />
-        </div>
-        <Cabin>{<SpinnerMini />}</Cabin>
-        <div>{<SpinnerMini />}</div>
-        <Price>{<SpinnerMini />}</Price>
-        <div>{<SpinnerMini />}</div>
-        <div>{<SpinnerMini />}</div>
-        <div></div>
-      </Table.Row>
-    );
+  return (
+    <Table.Row>
+      <div></div>
+      <Cabin>{name}</Cabin>
+      <div>Fits up to ${capacity} guests</div>
+      <Price>{formatCurrency(price)}</Price>
+      <div>{address}</div>
+      <div>{status}</div>
+      <div></div>
+    </Table.Row>
+  );
 }
 
 export default CabinRow;

@@ -7,16 +7,16 @@ import { useSetCabins } from '../../../hooks/useSetCabins';
 import { useCabinsContext } from '../../../hooks/useCabinsContext';
 
 function CabinsPanel() {
-  const { setCabins, isLoading } = useSetCabins();
+  const { setCabins, isLoading, error } = useSetCabins();
   const { cabins } = useCabinsContext();
 
   const { user } = useAuthContext();
 
   useEffect(() => {
-    if (user) {
+    if (user && cabins === null) {
       setCabins();
     }
-  }, [user]);
+  }, [user, cabins]);
 
   return (
     <Menus>
@@ -34,9 +34,8 @@ function CabinsPanel() {
         <Table.Body
           data={cabins}
           isLoading={isLoading}
-          render={(cabin) => (
-            <CabinRow cabin={cabin} key={cabin._id} isLoading={isLoading} />
-          )}
+          error={error}
+          render={(cabin) => <CabinRow cabin={cabin} key={cabin._id} />}
         />
       </Table>
     </Menus>

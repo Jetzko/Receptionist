@@ -1,5 +1,7 @@
 import { createContext, useContext } from 'react';
 import styled from 'styled-components';
+import CabinRow from './CabinRow';
+import CabinRowPlaceholder from './CabinRowPlaceholder';
 
 const StyledTable = styled.div`
   border: 1px solid var(--color-primary-tint-500);
@@ -77,11 +79,20 @@ function Row({ children }) {
   );
 }
 
-function Body({ data = [], render, isLoading }) {
-  if (!isLoading && !data.length)
+function Body({ data = [], render, isLoading, error }) {
+  if (error) return <Empty>Loading data error.</Empty>;
+
+  if (data !== null && !isLoading && !data.length)
     return <Empty>No data to show at the moment</Empty>;
 
-  return <StyledBody>{data.map(render)}</StyledBody>;
+  if (data === null && isLoading)
+    return (
+      <StyledBody>
+        <CabinRowPlaceholder />
+      </StyledBody>
+    );
+
+  if (data !== null) return <StyledBody>{data.map(render)}</StyledBody>;
 }
 
 Table.Header = Header;
