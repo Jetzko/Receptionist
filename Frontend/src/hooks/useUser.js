@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from './useAuthContext';
 
 export function useUser() {
   const [error, setError] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [isLoading, setIsLoading] = useState('');
-  const { dispatch, user } = useAuthContext();
+  const { user } = useAuthContext();
 
   async function checkUserAuth(id) {
     setIsLoading(true);

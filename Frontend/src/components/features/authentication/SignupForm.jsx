@@ -21,7 +21,7 @@ function SignupForm() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { signup, isLoading, error } = useSignup();
+  const { signup, isLoading } = useSignup();
 
   async function handleSubmit(e) {
     e.preventDefault();

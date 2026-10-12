@@ -1,7 +1,5 @@
 import { createContext, useContext } from 'react';
 import styled from 'styled-components';
-import SpinnerMini from '../../reusable/SpinnerMini';
-import CabinRow from './CabinRow';
 
 const StyledTable = styled.div`
   border: 1px solid var(--color-primary-tint-500);
@@ -79,8 +77,9 @@ function Row({ children }) {
   );
 }
 
-function Body({ data = [], render }) {
-  if (!data.length) return <Empty>No data to show at the moment</Empty>;
+function Body({ data = [], render, isLoading }) {
+  if (!isLoading && !data.length)
+    return <Empty>No data to show at the moment</Empty>;
 
   return <StyledBody>{data.map(render)}</StyledBody>;
 }

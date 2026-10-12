@@ -5,10 +5,9 @@ import { useEffect } from 'react';
 import CabinRow from './CabinRow';
 import { useSetCabins } from '../../../hooks/useSetCabins';
 import { useCabinsContext } from '../../../hooks/useCabinsContext';
-import SpinnerMini from '../../reusable/SpinnerMini';
 
 function CabinsPanel() {
-  const { setCabins, isLoading, error } = useSetCabins();
+  const { setCabins, isLoading } = useSetCabins();
   const { cabins } = useCabinsContext();
 
   const { user } = useAuthContext();
