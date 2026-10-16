@@ -7,6 +7,7 @@ import Button from '../../reusable/Button';
 import SpinnerMini from '../../reusable/SpinnerMini';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const StyledParagaph = styled.p`
   font-weight: var(--font-weight-medium);
@@ -21,18 +22,29 @@ function SignupForm() {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { signup, isLoading } = useSignup();
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const { signup, response, isLoading } = useSignup();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const res = await signup(email, password, fullName);
+    if (fullName === '' || email === '' || password === '')
+      return toast.error('Please compile all fields.');
+    if (password === confirmPassword) {
+      const res = await signup({ email, password, fullName });
 
-    if (res.ok) {
-      setFullName('');
-      setEmail('');
-      setPassword('');
+      if (res.ok) {
+        toast.success('Successfully signed up!');
+        setFullName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+      } else {
+        toast.error(res.error);
+      }
     }
+    if (password !== confirmPassword)
+      toast.error('The two passwords do not match.');
   }
 
   return (
@@ -63,6 +75,16 @@ function SignupForm() {
           autoComplete='current-password'
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          disabled={isLoading}
+        />
+      </FormRowVertical>
+      <FormRowVertical label='Confirm password'>
+        <Input
+          type='password'
+          id='confirm-password'
+          autoComplete='current-password'
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           disabled={isLoading}
         />
       </FormRowVertical>

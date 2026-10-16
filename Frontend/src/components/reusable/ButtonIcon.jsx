@@ -14,7 +14,7 @@ const ButtonIcon = styled.button`
   }
 
   & svg {
-    width: var(--space-4);
+    width: var(--space-5);
     color: var(--color-primary-shade-50);
   }
 

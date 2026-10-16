@@ -11,10 +11,12 @@ import Dashboard from './pages/Dashboard';
 import Account from './pages/Account';
 import Signup from './pages/Signup';
 import ProtectedRoute from './components/features/authentication/ProtectedRoute';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <BrowserRouter>
+      <Toaster />
       <Routes>
         <Route
           element={

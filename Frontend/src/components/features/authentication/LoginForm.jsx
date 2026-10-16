@@ -7,6 +7,7 @@ import Button from '../../reusable/Button';
 import SpinnerMini from '../../reusable/SpinnerMini';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import toast from 'react-hot-toast';
 
 const StyledParagaph = styled.p`
   font-weight: var(--font-weight-medium);
@@ -20,16 +21,38 @@ const StyledLink = styled(Link)`
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login, isLoading, error } = useLogin();
+  const [errorComponents, setErrorComponets] = useState([]);
+  const { login, isLoading } = useLogin();
+
+  // function errorHandler(errorFields) {
+  //   errorFields.map;
+  //   if (errorField === '') {
+  //     toast.error(`Plase write you ${errorField}`);
+  //     setErrorComponets(() => errorComponents.push(errorField));
+  //   }
+  // }
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (email === '') {
+      toast.error('Plaese write your email');
+    }
+
+    if (password === '') {
+      toast.error('Plase write your password');
+    }
 
     const res = await login(email, password);
 
     if (res.ok) {
       setEmail('');
       setPassword('');
+      toast.success('Logged in!');
+    }
+
+    if (!res.ok) {
+      toast.error(res.error);
     }
   }
 

@@ -3,14 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from './useAuthContext';
 
 export function useLogin() {
-  const [error, setError] = useState(null);
   const [isLoading, setisLoading] = useState(null);
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
 
   async function login(email, password) {
     setisLoading(true);
-    setError(null);
 
     const response = await fetch('/api/users/login', {
       method: 'POST',
@@ -22,7 +20,7 @@ export function useLogin() {
 
     if (!response.ok) {
       setisLoading(false);
-      setError(json.error);
+      return { ok: false, error: json.error };
     }
 
     if (response.ok) {
@@ -31,10 +29,9 @@ export function useLogin() {
       dispatch({ type: 'LOGIN', payload: json });
       setisLoading(false);
       navigate('/');
+      return { ok: true };
     }
-
-    return response;
   }
 
-  return { login, isLoading, error };
+  return { login, isLoading };
 }
