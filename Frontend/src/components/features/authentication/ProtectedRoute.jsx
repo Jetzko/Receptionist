@@ -3,7 +3,7 @@ import Spinner from '../../reusable/Spinner';
 
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useAuthContext } from '../../../hooks/useAuthContext';
 
 const FullPage = styled.div`
@@ -17,23 +17,25 @@ const FullPage = styled.div`
 function ProtectedRoute({ children }) {
   const { user } = useAuthContext();
   const navigate = useNavigate();
+  const checkedUserId = useRef(null);
 
   // 1. Load Authenticated user
   const { isLoading, isAuthenticated, checkUserAuth } = useUser();
 
   // 2. If there is No authenticated user, redirect to /login
   useEffect(() => {
-    async function protectRoute() {
-      if (!user) {
-        navigate('/login');
-      }
+    if (!user?._id || checkedUserId.current === user._id) return;
 
-      if (user) {
-        await checkUserAuth(user._id);
-      }
+    checkedUserId.current = user._id;
+    checkUserAuth(user._id);
+  }, [user, checkUserAuth]);
+
+  useEffect(() => {
+    if (!user || isAuthenticated === false) {
+      localStorage.removeItem('user');
+      navigate('/login', { replace: true });
     }
-    protectRoute();
-  }, [user]);
+  }, [user, isAuthenticated, navigate]);
 
   // 3.While loading, show a spinner
   if (isLoading)
