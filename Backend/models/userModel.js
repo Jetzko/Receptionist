@@ -36,13 +36,34 @@ const userSchema = new Schema({
   },
   phone: {
     type: String,
-    unique: true,
-    // match: /^\d+$/,
+    default: '',
+  },
+  users_id: {
+    admins_id: [
+      {
+        type: String,
+      },
+    ],
+    collaborators_id: [
+      {
+        type: String,
+      },
+    ],
   },
   nationality: String,
   languages: [String],
   description: String,
 });
+
+userSchema.index(
+  { phone: 1 },
+  {
+    unique: true,
+    partialFilterExpression: {
+      phone: { $type: 'string', $gt: '' },
+    },
+  },
+);
 
 async function generateNickname(fullName) {
   const nicknameBase = fullName
