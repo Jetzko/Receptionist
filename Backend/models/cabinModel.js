@@ -25,7 +25,7 @@ const cabinSchema = new Schema({
   status: {
     type: String,
   },
-  users: {
+  users_id: {
     owner_id: {
       type: String,
       required: true,

@@ -16,7 +16,7 @@ function CabinsPanel() {
     if (user && cabins === null) {
       setCabins();
     }
-  }, [user, cabins]);
+  }, [user, cabins, setCabins]);
 
   return (
     <Menus>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useCabinsContext } from './useCabinsContext';
 import { useAuthContext } from './useAuthContext';
 
@@ -8,7 +8,7 @@ export function useSetCabins() {
   const { dispatch } = useCabinsContext();
   const { user } = useAuthContext();
 
-  async function setCabins() {
+  const setCabins = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
@@ -16,7 +16,7 @@ export function useSetCabins() {
       const response = await fetch('/api/cabins', {
         method: 'GET',
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${user?.token}`,
         },
       });
 
@@ -27,13 +27,13 @@ export function useSetCabins() {
       }
 
       dispatch({ type: 'SET_CABINS', payload: json });
-    } catch (error) {
-      setError(error.message);
-      console.error('Downloading cabins error:', error);
+    } catch (err) {
+      setError(err.message);
+      console.error('Downloading cabins error:', err);
     } finally {
       setIsLoading(false);
     }
-  }
+  }, [user, dispatch]);
 
   return { setCabins, isLoading, error };
 }

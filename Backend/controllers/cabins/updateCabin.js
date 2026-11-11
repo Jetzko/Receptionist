@@ -21,14 +21,14 @@ const findEditableCabin = async (cabinId, activeUserId) => {
     // Cerca una cabin con l'ID della cabin nella richiesta e che abbia tra owner e admins l'ID dell'utente che esegue la richiesta
     _id: cabinId,
     $or: [
-      { 'users.owner_id': activeUserId },
-      { 'users.admins_id': activeUserId },
+      { 'users_id.owner_id': activeUserId },
+      { 'users_id.admins_id': activeUserId },
     ],
   });
 };
 
 const buildUpdatableData = ({ body, isOwner }) => {
-  const { users = {} } = body;
+  const { users_id = {} } = body;
   const allowedFields = ['name', 'price', 'address', 'status', 'description'];
 
   const updateData = Object.fromEntries(
@@ -37,12 +37,12 @@ const buildUpdatableData = ({ body, isOwner }) => {
     ),
   );
 
-  if (isOwner && users.admins_id !== undefined) {
-    updateData['users.admins_id'] = users.admins_id;
+  if (isOwner && users_id.admins_id !== undefined) {
+    updateData['users_id.admins_id'] = users_id.admins_id;
   }
 
-  if (users.collaborators_id !== undefined) {
-    updateData['users.collaborators_id'] = users.collaborators_id;
+  if (users_id.collaborators_id !== undefined) {
+    updateData['users_id.collaborators_id'] = users_id.collaborators_id;
   }
 
   return updateData;
@@ -50,8 +50,8 @@ const buildUpdatableData = ({ body, isOwner }) => {
 
 const updateCabin = async (req, res) => {
   const { cabin_id } = req.params;
-  const { users = {} } = req.body;
-  const { admins_id = [], collaborators_id = [] } = users;
+  const { users_id = {} } = req.body;
+  const { admins_id = [], collaborators_id = [] } = users_id;
   const activeUser_id = req.user._id.toString();
 
   if (!mongoose.Types.ObjectId.isValid(cabin_id)) {
@@ -66,7 +66,7 @@ const updateCabin = async (req, res) => {
         .status(404)
         .json({ error: 'Cabin not found or you have not the permissions.' });
 
-    const isOwner = cabin.users.owner_id === activeUser_id;
+    const isOwner = cabin.users_id.owner_id === activeUser_id;
 
     const userIdsToCheck = isOwner
       ? [...admins_id, ...collaborators_id]

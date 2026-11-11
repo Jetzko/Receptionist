@@ -11,9 +11,9 @@ const getAllCabins = async (req, res) => {
 
     const cabins = await Cabin.find({
       $or: [
-        { 'users.owner_id': activeUserId },
-        { 'users.admins_id': activeUserId },
-        { 'users.collaborators_id': activeUserId },
+        { 'users_id.owner_id': activeUserId },
+        { 'users_id.admins_id': activeUserId },
+        { 'users_id.collaborators_id': activeUserId },
       ],
     });
     res.status(200).json(cabins);

@@ -32,7 +32,7 @@ const createCabin = async (req, res) => {
       capacity,
       description,
       status,
-      users: {
+      users_id: {
         owner_id,
       },
       reviews,
