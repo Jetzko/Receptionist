@@ -1,18 +1,28 @@
 import { useCallback, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import UserCard from '../../UserCard';
-
-const Card = styled.div``;
+import UserCard from './UserCard';
+import { useUsersContext } from '../../../hooks/useUsersContext';
+import { useGetAllUsers } from '../../../hooks/useGetAllUsers';
+import { useSetCabins } from '../../../hooks/useSetCabins';
+import { useCabinsContext } from '../../../hooks/useCabinsContext';
 
 const CardList = styled.ul`
   display: flex;
+
   gap: 7.2rem;
   overflow-x: scroll;
-  /* scrollbar-width: none; */
-  width: 100%;
+  scrollbar-width: none;
+  width: 80%;
+  padding: var(--space-4);
 `;
 
 function UsersList() {
+  const { getAllUsers } = useGetAllUsers();
+  const { setCabins } = useSetCabins();
+  const { state: usersState } = useUsersContext();
+  const { cabins } = useCabinsContext();
+
+  const usersRequestStarted = useRef(false);
   const cardListRef = useRef(null);
   const targetScrollPointRef = useRef(0);
   const animationRef = useRef(null);
@@ -65,6 +75,19 @@ function UsersList() {
   );
 
   useEffect(() => {
+    if (usersState?.users || usersRequestStarted.current) return;
+
+    usersRequestStarted.current = true;
+    getAllUsers().then((users) => {
+      if (!users) usersRequestStarted.current = false;
+    });
+  }, [getAllUsers, usersState?.users]);
+
+  useEffect(() => {
+    if (cabins === null) setCabins();
+  }, [cabins, setCabins]);
+
+  useEffect(() => {
     const cardList = cardListRef.current;
     if (!cardList) return;
 
@@ -82,21 +105,32 @@ function UsersList() {
   }, [horizontalScroll]);
 
   return (
-    <>
-      <CardList ref={cardListRef}>
-        <UserCard>
-          <Card></Card>
-        </UserCard>
-        <UserCard>Collaborator #1</UserCard>
-        <UserCard>Collaborator #2</UserCard>
-        <UserCard>Collaborator #2</UserCard>
-        <UserCard>Collaborator #2</UserCard>
-        <UserCard>Collaborator #2</UserCard>
-        <UserCard>Collaborator #2</UserCard>
-        <UserCard>Collaborator #2</UserCard>
-        <UserCard>Collaborator #2</UserCard>
-      </CardList>
-    </>
+    <CardList ref={cardListRef}>
+      {usersState?.users?.admins &&
+        usersState.users.admins.map((admin) => (
+          <UserCard
+            key={admin._id}
+            user={admin}
+            role='Admin'
+            cabins={cabins?.filter((cabin) =>
+              cabin.users_id.admins_id?.some((id) => id === admin._id),
+            )}
+          />
+        ))}
+      {usersState?.users?.collaborators &&
+        usersState.users.collaborators.map((collaborator) => (
+          <UserCard
+            key={collaborator._id}
+            user={collaborator}
+            role='Collaborator'
+            cabins={cabins?.filter((cabin) =>
+              cabin.users_id.collaborators_id?.some(
+                (id) => id === collaborator._id,
+              ),
+            )}
+          />
+        ))}
+    </CardList>
   );
 }
 

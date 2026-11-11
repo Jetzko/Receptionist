@@ -1,7 +1,7 @@
-import styled from 'styled-components';
 import Row from '../components/layout/Row';
 import Heading from '../components/reusable/Heading';
 import UsersList from '../components/features/users/UsersList';
+import AddUser from '../components/features/users/AddUser';
 
 function Users() {
   return (
@@ -12,6 +12,11 @@ function Users() {
 
       <Row>
         <UsersList />
+        {/* <Button $type='primary' $size='large'>A</Button> */}
+      </Row>
+
+      <Row>
+        <AddUser />
       </Row>
     </>
   );

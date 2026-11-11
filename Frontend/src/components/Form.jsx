@@ -5,12 +5,13 @@ const Form = styled.form`
     props.type === 'regular' &&
     css`
       padding: 2.4rem 4rem;
+      width: var(--space-12);
 
       /* Box */
-      background-color: var(--color-primary-tint-950);
+      background-color: #fff;
       border: 1px solid var(--color-primary-tint-900);
       border-radius: var(--border-radius-md);
-      box-shadow: 5px 5px 5px var(--color-primary-tint-500);
+      box-shadow: 5px 5px 5px var(--color-primary-tint-800);
     `}
 
   ${(props) =>

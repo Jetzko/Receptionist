@@ -18,6 +18,13 @@ const sizes = {
     padding: 1.2rem 2.4rem;
     font-weight: 500;
   `,
+  xsmall: css`
+    font-size: 1.2rem;
+    padding: 0.8rem 0.4rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+  `,
 };
 
 const variations = {
@@ -35,8 +42,12 @@ const variations = {
     border: 1px solid var(--color-grey-200);
 
     &:hover {
-      background-color: var(--color-primary-tint-900);
+      background-color: var(--color-primary-tint-950);
     }
+  `,
+  tertiary: css`
+    color: var(--color-secondary-shade-950);
+    background-color: var(--color-secondary-tint-50);
   `,
   danger: css`
     color: var(--color-red-100);

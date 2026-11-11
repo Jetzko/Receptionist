@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 const StyledUserAvatar = styled.div`
   display: flex;
@@ -20,10 +21,11 @@ const AvatarImg = styled.img`
 `;
 
 function UserAvatar() {
+  const { user } = useAuthContext();
   return (
     <StyledUserAvatar>
       <AvatarImg src='./default-user.jpg' />
-      <span>User</span>
+      <span>{user?.fullName}</span>
     </StyledUserAvatar>
   );
 }

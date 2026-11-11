@@ -9,6 +9,7 @@ const StyledFormRow = styled.div`
 
 const Label = styled.label`
   font-weight: var(--font-weight-medium);
+  color: var(--color-tertiary-base);
 `;
 
 const Error = styled.span`
